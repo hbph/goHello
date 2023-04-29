@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-deploymentn
+  labels:
+    role: appn
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      role: appn
+  template:
+    metadata:
+      labels:
+        role: appn
+    spec:
+      containers:
+      - name: appn
+        image: vignesh203/deployment:latest
+        resources:
+          requests:
+            cpu: 10m
